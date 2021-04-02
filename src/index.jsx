@@ -1,47 +1,40 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-// JSX Rules
-// return single element
-//  div / section / article or Fragment
-// use camelCase for html attributes
-// className instead of class
-// close every element
-// formatting
-// function Greeting() {
-//   return (
-//     <div>
-//       <h2>John Doe</h2>
-//       <p>This is the message</p>
-//     </div>
-//   )
-// }
-
-// const Greeting = () => {
-//   return React.createElement(
-//     'div',
-//     {},
-//     React.createElement('p', {}, 'testando'),
-//   )
-// }
-
-//Nested Components, React Tools
-
-export const Greeting = () => {
+export const BookList = () => {
   return (
-    <div>
-      <Person />
-      <Message />
-    </div>
+    <section>
+      <Book />
+      <Book />
+      <Book />
+    </section>
   )
 }
 
-export const Person = () => {
-  return <h3>John Doe</h3>
+const Book = () => {
+  return (
+    <article>
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  )
 }
-
-export const Message = () => {
-  return <p>This is the Message</p>
+const Image = () => {
+  return (
+    <img
+      src="https://images-na.ssl-images-amazon.com/images/I/41TsvI70n9L._SX335_BO1,204,203,200_.jpg"
+      alt="livro do mil ao milhão"
+      width="150px"
+    />
+  )
 }
+const Author = () => <h2>Thiago Nigro</h2>
+const Title = () => (
+  <h3>
+    Do Mil ao Milhão.
+    <br /> Sem Cortar o Cafezinho.
+  </h3>
+)
 
-ReactDOM.render(<Greeting />, document.getElementById('root'))
+ReactDOM.render(<BookList />, document.getElementById('root'))
