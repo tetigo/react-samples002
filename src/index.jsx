@@ -8,14 +8,14 @@ import ReactDOM from 'react-dom'
 // className instead of class
 // close every element
 // formatting
-function Greeting() {
-  return (
-    <div>
-      <h2>John Doe</h2>
-      <p>This is the message</p>
-    </div>
-  )
-}
+// function Greeting() {
+//   return (
+//     <div>
+//       <h2>John Doe</h2>
+//       <p>This is the message</p>
+//     </div>
+//   )
+// }
 
 // const Greeting = () => {
 //   return React.createElement(
@@ -24,5 +24,24 @@ function Greeting() {
 //     React.createElement('p', {}, 'testando'),
 //   )
 // }
+
+//Nested Components, React Tools
+
+export const Greeting = () => {
+  return (
+    <div>
+      <Person />
+      <Message />
+    </div>
+  )
+}
+
+export const Person = () => {
+  return <h3>John Doe</h3>
+}
+
+export const Message = () => {
+  return <p>This is the Message</p>
+}
 
 ReactDOM.render(<Greeting />, document.getElementById('root'))
