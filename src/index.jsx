@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './index.css'
 
 export const BookList = () => {
   return (
-    <section>
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
@@ -13,7 +14,7 @@ export const BookList = () => {
 
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <Image />
       <Title />
       <Author />
@@ -29,7 +30,11 @@ const Image = () => {
     />
   )
 }
-const Author = () => <h2>Thiago Nigro</h2>
+const Author = () => (
+  <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.25rem' }}>
+    Thiago Nigro
+  </h4>
+)
 const Title = () => (
   <h3>
     Do Mil ao Milhão.
