@@ -2,27 +2,38 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-export const BookList = () => {
+const firstBook = {
+  author: 'Thiago Nigro',
+  title: 'Do Mil ao Milhão. Sem Cortar o Cafezinho.',
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/41TsvI70n9L._SX335_BO1,204,203,200_.jpg',
+}
+const secondBook = {
+  author: 'Arthur Conan Doyle',
+  title: 'Sherlock Holmes: The Complete Collection (English Edition)',
+  img: 'https://m.media-amazon.com/images/I/41zuLOCSbCL.jpg',
+}
+
+const Book = (props) => {
   return (
-    <section className="booklist">
-      <Book />
-    </section>
+    <article className="book">
+      <img src={props.img} alt="livro do mil ao milhão" width="150px" />
+      <h3>{props.title}</h3>
+      <h4>{props.author}</h4>
+    </article>
   )
 }
 
-const Book = () => {
-  const author = 'Thiago Nigro'
-  const title = 'Do Mil ao Milhão. Sem Cortar o Cafezinho.'
+export const BookList = () => {
   return (
-    <article className="book">
-      <img
-        src="https://images-na.ssl-images-amazon.com/images/I/41TsvI70n9L._SX335_BO1,204,203,200_.jpg"
-        alt="livro do mil ao milhão"
-        width="150px"
+    <section className="booklist">
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
       />
-      <h3>{title}</h3>
-      <h4>{author}</h4>
-    </article>
+      <Book {...secondBook} />
+    </section>
   )
 }
 
