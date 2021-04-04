@@ -14,12 +14,14 @@ const secondBook = {
   img: 'https://m.media-amazon.com/images/I/41zuLOCSbCL.jpg',
 }
 
-const Book = (props) => {
+const Book = ({ img, title, author, children }) => {
+  // const { img, title, author } = props
   return (
     <article className="book">
-      <img src={props.img} alt="livro do mil ao milhão" width="150px" />
-      <h3>{props.title}</h3>
-      <h4>{props.author}</h4>
+      <img src={img} alt="livro do mil ao milhão" width="150px" />
+      <h3>{title}</h3>
+      <h4>{author}</h4>
+      {children}
     </article>
   )
 }
@@ -31,7 +33,12 @@ export const BookList = () => {
         img={firstBook.img}
         title={firstBook.title}
         author={firstBook.author}
-      />
+      >
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non nostrum
+          in magni. Esse ipsum nihil accusamus, magnam earum quae possimus!
+        </p>
+      </Book>
       <Book {...secondBook} />
     </section>
   )
